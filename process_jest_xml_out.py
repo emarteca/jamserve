@@ -33,7 +33,7 @@ if len( sys.argv) != 2:
 	print("Usage: python process_jest_xml_out.py file_to_append_to")
 output_file = sys.argv[1]
 # now, do the actual processing
-jest_tests = parse_xml_file("junit.xml")
+jest_tests = parse_xml_file("junit-unit-tests.xml")
 relevant_descs = parse_relevant_descs_file("affected_test_descs.txt")
 jest_tests["relevant"] = jest_tests.test_id.isin(relevant_descs.test_desc)
 jest_tests = jest_tests[jest_tests.relevant].drop(["relevant"], axis=1)
