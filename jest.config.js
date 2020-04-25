@@ -13,5 +13,16 @@ module.exports = {
 	testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(test).[jt]s?(x)"],
 	globals: {
 		_testDatabases_: ['nedb'] //, 'elastic']
-	}
+	},
+	reporters: [
+    		'default',
+    		[
+      			'jest-junit',
+      			{
+        			outputDirectory: '.',
+        			outputName: 'junit-unit-tests.xml',
+     			 },
+    		],
+  	],
+	setupFiles: ['<rootDir>/unit-error-hack.js'],
 };
